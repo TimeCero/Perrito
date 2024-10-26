@@ -1,7 +1,9 @@
 package com.example.petcare
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -22,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNav)
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 
+        val buttonOpenMap = findViewById<Button>(R.id.button_open_map)
+        buttonOpenMap.setOnClickListener {
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
 
+        }
     }
 }

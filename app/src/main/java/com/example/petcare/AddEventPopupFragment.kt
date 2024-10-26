@@ -18,28 +18,23 @@ import com.google.android.material.textfield.TextInputEditText
 import java.time.LocalTime
 import java.util.*
 
-
 class AddEventPopupFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
     private lateinit var binding: FragmentAddEventPopupBinding
     private lateinit var listener2: DialogNextBtnClickListener3
-    private var eventsData: EventsData?= null
+    private var eventsData: EventsData? = null
     private var Time: LocalTime? = null
 
-    fun setListener(listener2: DialogNextBtnClickListener3){
-
-        this.listener2=listener2
-
+    fun setListener(listener2: DialogNextBtnClickListener3) {
+        this.listener2 = listener2
     }
 
-    companion object{
-
+    companion object {
         const val TAG = "AddEventPopupFragment"
         @JvmStatic
-        fun newInstance(eventId: String, event: String)= AddEventPopupFragment().apply {
-            arguments= Bundle().apply {
+        fun newInstance(eventId: String, event: String) = AddEventPopupFragment().apply {
+            arguments = Bundle().apply {
                 putString("EventId", eventId)
                 putString("Event", event)
-
             }
         }
     }
@@ -55,9 +50,11 @@ class AddEventPopupFragment : DialogFragment(), DatePickerDialog.OnDateSetListen
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (arguments!=null){
-            eventsData= EventsData(arguments?.getString("EventId").toString(),
-                arguments?.getString("Event").toString())
+        if (arguments != null) {
+            eventsData = EventsData(
+                arguments?.getString("EventId").toString(),
+                arguments?.getString("Event").toString()
+            )
             binding.eventEt.setText(eventsData?.Event)
         }
 
@@ -66,7 +63,6 @@ class AddEventPopupFragment : DialogFragment(), DatePickerDialog.OnDateSetListen
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun registerEvents() {
-
         binding.eventDateBtn.setOnClickListener {
             showDatePicker()
         }
@@ -74,59 +70,63 @@ class AddEventPopupFragment : DialogFragment(), DatePickerDialog.OnDateSetListen
             showTimePicker()
         }
 
+        // Cambio del contenido de los botones
         binding.foodBtn.setOnClickListener {
-            binding.textViewEvent.text= "FOOD    "
-            Toast.makeText(context, "Selected Item : FOOD", Toast.LENGTH_SHORT).show()
+            binding.textViewEvent.text = "ALIMENTO"
+            Toast.makeText(context, "Has seleccionado: ALIMENTO", Toast.LENGTH_SHORT).show()
         }
         binding.treatBtn.setOnClickListener {
-            binding.textViewEvent.text= "TREAT   "
-            Toast.makeText(context, "Selected Item : TREAT", Toast.LENGTH_SHORT).show()
+            binding.textViewEvent.text = "PREMIO"
+            Toast.makeText(context, "Has seleccionado: PREMIO", Toast.LENGTH_SHORT).show()
         }
         binding.waterBtn.setOnClickListener {
-            binding.textViewEvent.text= "WATER   "
-            Toast.makeText(context, "Selected Item : WATER", Toast.LENGTH_SHORT).show()
+            binding.textViewEvent.text = "AGUA"
+            Toast.makeText(context, "Has seleccionado: AGUA", Toast.LENGTH_SHORT).show()
         }
         binding.brushingBtn.setOnClickListener {
-            binding.textViewEvent.text= "BRUSHING"
-            Toast.makeText(context, "Selected Item : GROOMING", Toast.LENGTH_SHORT).show()
+            binding.textViewEvent.text = "CEPILLADO"
+            Toast.makeText(context, "Has seleccionado: CEPILLADO", Toast.LENGTH_SHORT).show()
         }
         binding.toothBrushingBtn.setOnClickListener {
-            binding.textViewEvent.text= "TOOTH  "
-            Toast.makeText(context, "Selected Item : TOOTH-BRUSHING", Toast.LENGTH_SHORT).show()
+            binding.textViewEvent.text = "LIMPIEZA DE DIENTES"
+            Toast.makeText(context, "Has seleccionado: LIMPIEZA DE DIENTES", Toast.LENGTH_SHORT).show()
         }
         binding.medicineBtn.setOnClickListener {
-            binding.textViewEvent.text= "MEDICINE"
-            Toast.makeText(context, "Selected Item : MEDICINE", Toast.LENGTH_SHORT).show()
+            binding.textViewEvent.text = "MEDICAMENTO"
+            Toast.makeText(context, "Has seleccionado: MEDICAMENTO", Toast.LENGTH_SHORT).show()
         }
         binding.trainingBtn.setOnClickListener {
-            binding.textViewEvent.text= "TRAINING"
-            Toast.makeText(context, "Selected Item : TRAINING", Toast.LENGTH_SHORT).show()
+            binding.textViewEvent.text = "ENTRENAMIENTO"
+            Toast.makeText(context, "Has seleccionado: ENTRENAMIENTO", Toast.LENGTH_SHORT).show()
         }
         binding.walkingBtn.setOnClickListener {
-            binding.textViewEvent.text= "WALKING "
-            Toast.makeText(context, "Selected Item : WALKING", Toast.LENGTH_SHORT).show()
+            binding.textViewEvent.text = "PASEO"
+            Toast.makeText(context, "Has seleccionado: PASEO", Toast.LENGTH_SHORT).show()
         }
         binding.sleepingBtn.setOnClickListener {
-            binding.textViewEvent.text= "SLEEPING"
-            Toast.makeText(context, "Selected Item : SLEEPING", Toast.LENGTH_SHORT).show()
+            binding.textViewEvent.text = "DORMIR"
+            Toast.makeText(context, "Has seleccionado: DORMIR", Toast.LENGTH_SHORT).show()
         }
+
         binding.eventNextBtn.setOnClickListener {
-            val eventText= binding.textViewEvent.text.toString()+"          "+binding.textViewDate.text.toString()+"   "+ binding.textViewTime.text.toString()+" "+binding.eventEt.text.toString()
-            if(eventText.isNotEmpty()){
-                if(eventsData==null){
+            val eventText = binding.textViewEvent.text.toString() + "   " +
+                    binding.textViewDate.text.toString() + "   " +
+                    binding.textViewTime.text.toString() + "   " +
+                    binding.eventEt.text.toString()
+
+            if (eventText.isNotEmpty()) {
+                if (eventsData == null) {
                     listener2.onSaveEvent(eventText, binding.eventEt)
-                }
-                else{
-                    //this is for if the user is editing the event
-                    eventsData?.Event= eventText
+                } else {
+                    // Esto es para si el usuario está editando el evento
+                    eventsData?.Event = eventText
                     listener2.onUpdateEvent(eventsData!!, binding.eventEt)
                 }
-
-            }
-            else{
-                Toast.makeText(context, "Please choose an event", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Por favor selecciona un evento", Toast.LENGTH_SHORT).show()
             }
         }
+
         binding.eventClose.setOnClickListener {
             dismiss()
         }
@@ -134,21 +134,21 @@ class AddEventPopupFragment : DialogFragment(), DatePickerDialog.OnDateSetListen
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun showTimePicker() {
-        if(Time == null)
+        if (Time == null)
             Time = LocalTime.now()
-        val listener = TimePickerDialog.OnTimeSetListener{ _, selectedHour, selectedMinute ->
+        val listener = TimePickerDialog.OnTimeSetListener { _, selectedHour, selectedMinute ->
             Time = LocalTime.of(selectedHour, selectedMinute)
             updateTimeButtonText()
         }
         val dialog = TimePickerDialog(activity, listener, Time!!.hour, Time!!.minute, true)
-        dialog.setTitle("Time")
+        dialog.setTitle("Seleccionar hora")
         dialog.show()
-
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
     private fun updateTimeButtonText() {
-        binding.eventTimeBtn.text = String.format("%02d:%02d",Time!!.hour,Time!!.minute)
-        binding.textViewTime.text= String.format("%02d:%02d",Time!!.hour,Time!!.minute)
+        binding.eventTimeBtn.text = String.format("%02d:%02d", Time!!.hour, Time!!.minute)
+        binding.textViewTime.text = String.format("%02d:%02d", Time!!.hour, Time!!.minute)
     }
 
     private fun showDatePicker() {
@@ -159,9 +159,9 @@ class AddEventPopupFragment : DialogFragment(), DatePickerDialog.OnDateSetListen
 
         val datePicker = DatePickerDialog(
             requireActivity(),
-            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                binding.textViewDate.setText("" + dayOfMonth + "/" + month + "/" + year)
-                binding.eventDateBtn.setText("" + dayOfMonth + "/" + month + "/" + year)
+            DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+                binding.textViewDate.setText("" + dayOfMonth + "/" + (month + 1) + "/" + year)
+                binding.eventDateBtn.setText("" + dayOfMonth + "/" + (month + 1) + "/" + year)
             },
             year,
             month,
@@ -176,9 +176,9 @@ class AddEventPopupFragment : DialogFragment(), DatePickerDialog.OnDateSetListen
         calendar.set(Calendar.MONTH, month)
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
     }
-
 }
-interface DialogNextBtnClickListener3{
+
+interface DialogNextBtnClickListener3 {
     fun onSaveEvent(event: String, eventEt: TextInputEditText)
     fun onUpdateEvent(eventsData: EventsData, eventEt: TextInputEditText)
 }

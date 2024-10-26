@@ -63,7 +63,7 @@ class EventsFragment : Fragment(), DialogNextBtnClickListener3,
 
         navController= Navigation.findNavController(view)
         auth=FirebaseAuth.getInstance()
-        databaseRef = FirebaseDatabase.getInstance().reference.child("Events").child(auth.currentUser?.uid.toString())
+        databaseRef = FirebaseDatabase.getInstance().reference.child("Eventos").child(auth.currentUser?.uid.toString())
 
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
@@ -102,7 +102,7 @@ class EventsFragment : Fragment(), DialogNextBtnClickListener3,
         databaseRef.push().setValue(event).addOnCompleteListener {
             if(it.isSuccessful){
 
-                Toast.makeText(context, "Event saved successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Evento guardado exitosamente", Toast.LENGTH_SHORT).show()
             }
             else{
                 Toast.makeText(context, it.exception?.message, Toast.LENGTH_SHORT).show()
@@ -118,7 +118,7 @@ class EventsFragment : Fragment(), DialogNextBtnClickListener3,
         map[eventsData.EventId] = eventsData.Event
         databaseRef.updateChildren(map).addOnCompleteListener {
             if(it.isSuccessful){
-                Toast.makeText(context, "The event updated successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "El evento se actualizó exitosamente", Toast.LENGTH_SHORT).show()
             }
             else{
                 Toast.makeText(context, it.exception?.message, Toast.LENGTH_SHORT).show()
@@ -131,7 +131,7 @@ class EventsFragment : Fragment(), DialogNextBtnClickListener3,
     override fun onDeleteEventBtnClicked(eventsData: EventsData) {
         databaseRef.child(eventsData.EventId).removeValue().addOnCompleteListener {
             if(it.isSuccessful){
-                Toast.makeText(context, "Event deleted successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "El evento se actualizó exitosamente.", Toast.LENGTH_SHORT).show()
             }
             else{
                 Toast.makeText(context, it.exception?.message, Toast.LENGTH_SHORT).show()

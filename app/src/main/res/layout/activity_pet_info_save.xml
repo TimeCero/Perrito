@@ -7,7 +7,6 @@
     android:background="#DEE4EF"
     tools:context=".PetInfoSaveActivity">
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="414dp"
@@ -27,65 +26,10 @@
         android:background="#FEFEFE"
         android:drawableLeft="@drawable/icon_circle"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Nombre"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editText_petfm"
-        android:layout_width="307dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        android:drawableLeft="@drawable/icon_circle"
-        android:ems="10"
-        android:hint="Male/Female"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.567"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_petbirthday" />
-
-    <EditText
-        android:id="@+id/editText_petweight"
-        android:layout_width="307dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        android:drawableLeft="@drawable/icon_circle"
-        android:ems="10"
-        android:hint="Weight"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.567"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_petfm" />
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="72dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="28dp"
-        android:text="Save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_petweight" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="235dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="160dp"
-        android:text="Please fill in all fileds"
-        android:textColor="@color/ButtonColor"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,7 +41,7 @@
         android:background="@color/white"
         android:drawableLeft="@drawable/icon_circle"
         android:ems="10"
-        android:hint="Species, Breed"
+        android:hint="Especie y Raza"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
@@ -112,12 +56,67 @@
         android:background="@color/white"
         android:drawableLeft="@drawable/icon_circle"
         android:ems="10"
-        android:hint="Birthday"
+        android:hint="Cumpleaños"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_petbreed" />
+
+    <EditText
+        android:id="@+id/editText_petfm"
+        android:layout_width="307dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/icon_circle"
+        android:ems="10"
+        android:hint="Macho/Hembra"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_petbirthday" />
+
+    <EditText
+        android:id="@+id/editText_petweight"
+        android:layout_width="307dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/icon_circle"
+        android:ems="10"
+        android:hint="Peso"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_petfm" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="130dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="28dp"
+        android:text="Guardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_petweight" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="235dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="160dp"
+        android:text="COMPLETAR CAMPOS"
+        android:textColor="@color/ButtonColor"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/button_backhome"
@@ -131,6 +130,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_back4" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

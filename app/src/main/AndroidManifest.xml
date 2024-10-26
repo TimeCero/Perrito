@@ -3,6 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+
+
 
     <application
         android:allowBackup="true"
@@ -14,6 +23,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare"
         tools:targetApi="31">
+
+
         <activity
             android:name=".PetInfoSaveActivity"
             android:exported="false">
@@ -21,6 +32,12 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB6NmW-3MPcA5QHO89R3ZBHlhdLRgepWU8"/>
+
         <activity
             android:name=".SettingsActivity"
             android:exported="false">
@@ -61,7 +78,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -69,6 +85,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity
+            android:name=".MapsActivity"
+            android:exported="true">
+        </activity>
+
+
     </application>
 
 </manifest>

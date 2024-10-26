@@ -7,7 +7,6 @@
     android:background="#DEE4EF"
     tools:context=".LoginActivity">
 
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -15,7 +14,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="56dp"
-        android:text="Welcome to PetCare!"
+        android:text="¡Bienvenido a PetCare!"
         android:textColor="@color/ButtonColor"
         android:textSize="32dp"
         android:textStyle="bold"
@@ -42,7 +41,7 @@
         android:layout_width="108dp"
         android:layout_height="39dp"
         android:layout_marginTop="60dp"
-        android:text="LOG IN"
+        android:text="INICIAR SESIÓN"
         android:textColor="#4D428E"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -58,7 +57,7 @@
         android:layout_marginTop="64dp"
         android:drawableLeft="@drawable/icon_account"
         android:ems="10"
-        android:hint="  E-mail"
+        android:hint="  Correo electrónico"
         app:layout_constraintEnd_toEndOf="@+id/textView_loginbackground"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/textView_loginbackground"
@@ -71,8 +70,8 @@
         android:layout_marginTop="28dp"
         android:drawableLeft="@drawable/icon_password"
         android:ems="10"
-        android:hint="  Password"
-        android:inputType="textPersonName"
+        android:hint="  Contraseña"
+        android:inputType="textPassword"
         android:password="true"
         android:text=""
         app:layout_constraintEnd_toEndOf="@+id/textView_loginbackground"
@@ -86,7 +85,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/background_button"
-        android:text="LOG IN"
+        android:text="INICIAR"
         app:backgroundTint="@color/ButtonColor"
         app:layout_constraintEnd_toEndOf="@+id/editText_password_login"
         app:layout_constraintHorizontal_bias="0.497"
@@ -98,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Don't have an account? "
+        android:text="¿No tienes una cuenta?"
         app:layout_constraintEnd_toEndOf="@+id/textView_loginbackground"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/textView_loginbackground"
@@ -111,12 +110,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="16dp"
-        android:text="Register now"
+        android:text="Regístrate ahora"
         android:textColor="#4D428E"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

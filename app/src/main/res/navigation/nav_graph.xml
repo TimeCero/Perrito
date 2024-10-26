@@ -15,6 +15,8 @@
         android:name="com.example.petcare.ToDoFra"
         android:label="fragment_to_do"
         tools:layout="@layout/fragment_to_do" />
+
+
     <activity
         android:id="@+id/petInfoViewActivity"
         android:name="com.example.petcare.PetInfoViewActivity"

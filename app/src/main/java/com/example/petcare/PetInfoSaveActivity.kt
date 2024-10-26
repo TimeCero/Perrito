@@ -36,17 +36,17 @@ class PetInfoSaveActivity : AppCompatActivity() {
             var u = mAuth.currentUser
             var userId = u?.uid
             var databaseref =
-                FirebaseDatabase.getInstance().reference.child("Pet Info").child(userId.toString())
+                FirebaseDatabase.getInstance().reference.child("Información de mascota").child(userId.toString())
 
             databaseref.setValue(PetInfoData(name, breed, bday, fm, weight)).addOnCompleteListener {
                 if (it.isSuccessful) {
                     Toast.makeText(
                         baseContext,
-                        "Information saved successfully",
+                        "Información guardada exitosamente",
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    Toast.makeText(baseContext, "Failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Fallido", Toast.LENGTH_SHORT).show()
                 }
             }
 
